@@ -36,9 +36,9 @@ social:
   links:
     # The first element serves as the copyright owner's link
     #- https://twitter.com/username      # change to your twitter homepage
-    - https://github.com/yunminjin2       # change to your github homepage
+    - https://github.com/username       # change to your github homepage
     # Uncomment below to add more social links
-     - https://www.facebook.com/yunminjin2
+     - https://www.facebook.com/username
     # - https://www.linkedin.com/in/username
 
 google_site_verification: google_meta_tag_verification # change to your verification string
