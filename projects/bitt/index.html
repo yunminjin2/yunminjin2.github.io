@@ -193,10 +193,10 @@
           As our method estimates texture uv map of two hand, we can freely change pose, view point of the hands. Also, estimating light of the scene and albedo of the hands, we can relight the hands in novel condition.
         </p>
         <div id="results-carousel" class="carousel results-carousel">
-          <div class="item item-video1">
+          <div class="item item-image1">
             <img src="data/pose_view.png" alt="MY ALT TEXT"/>
           </div>
-          <div class="item item-video2">
+          <div class="item item-image2">
             <img src="data/reinterhand.png" alt="MY ALT TEXT"/>
           </div>
         </div>
@@ -214,7 +214,7 @@
           FourierHandFlow is the ✨spatio-temporally continuous hand representation✨. Given RGB frames observed at each time step, it inherently allows the sampling of hand shapes at inter- and extrapolated
           time values from the learned Fourier query flows. The sampled shapes are shown to model smooth temporal evolution of hand shapes.
         </p>
-        <img src="data/comparison_image.png" alt="MY ALT TEXT"/>
+        <img src="data/shadow_rendered_image.png" alt="MY ALT TEXT" width="1080"/>
       </div>
     </div>
   </div>
@@ -229,7 +229,7 @@
         <p>
           Our method consists of three steps: (1) scene estimation, (2) coarse stage, and (3) fine stage estimation. The scene estimation understands the scene by predicting the albedo image and lighting conditions with a given input image. Full detailed textures of both hands are reconstructed from the single image input. The hand texture parametric model is adopted in the coarse stage, then the bi-directional texture reconstruction refines the personalized hand textures by the texture symmetry of left-right-hands. Finally, we render both hands with Phong Illumination.
         </p>
-        <img src="data/shadow_rendered_image.png" alt="MY ALT TEXT"/>
+        <img src="data/fig_image.png" alt="MY ALT TEXT"/>
 
     </div>
   </div>
