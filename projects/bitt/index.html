@@ -307,11 +307,9 @@ decoding.
       <h2 class="title is-3">🛠 Model Architecture</h2>
       <div class="content has-text-justified">
         <p>
-          FourierHandFlow models a query flow by estimating the joint flow (blue upper branch) and the shape flow (pink lower branch).
-          The joint flow network first predicts the Fourier coefficients for the flow of hand joint positions. The predicted joint flow is propagated to each query point via implicit linear
-          blend skinning. The shape flow network then predicts the Fourier coefficients for query-wise displacement flow w.r.t. the estimated pose-depenedent flow. Please check the paper for more details.
+          Our method consists of three steps: (1) scene estimation, (2) coarse stage, and (3) fine stage estimation. The scene estimation understands the scene by predicting the albedo image and lighting conditions with a given input image. Full detailed textures of both hands are reconstructed from the single image input. The hand texture parametric model is adopted in the coarse stage, then the bi-directional texture reconstruction refines the personalized hand textures by the texture symmetry of left-right-hands. Finally, we render both hands with Phong Illumination.
         </p>
-        <img src="data/fig_model.png" alt="MY ALT TEXT"/>
+        <img src="data/fig_image.png" alt="MY ALT TEXT"/>
 
     </div>
   </div>
@@ -322,12 +320,13 @@ decoding.
   <section class="section" id="BibTeX">
     <div class="container is-max-desktop content">
       <h2 class="title">BibTeX</h2>
-      <pre><code>@inproceedings{lee2023fourierhandflow,
-    title={FourierHandFlow: Neural 4D Hand Representation Using Fourier Query Flow},
-    author={Lee, Jihyun and Jang, Junbong and Kim, Donghwan and Sung, Minhyuk and Kim, Tae-Kyun},
-    booktitle={NeurIPS},
-    year={2023}
-}</code></pre>
+      <pre><code>@InProceedings{kim2024bitt,
+    author = {Kim, Minje and Kim, Tae-Kyun},
+    title = {BiTT: Bi-directional Texture Reconstruction of Interacting Two Hands from a Single Image},
+    booktitle = {The IEEE Conference on Computer Vision and Pattern Recognition (CVPR)},
+    year = {2024}
+  }
+</code></pre>
     </div>
 </section>
 <!--End BibTex citation -->
