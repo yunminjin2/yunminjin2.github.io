@@ -179,7 +179,7 @@
           BiTT achieves the <b>state-of-the-art two-hand reconstruction accuracy</b> on InterHand2.6M and RGB2Hands. From a single image containing two-interacting hands, BiTT can . Please also refer to the paper for quantitative comparisons with more baseline methods.
         </p>
         <img src="data/comparison_image.png" alt="MY ALT TEXT"/>
-      
+      </div>
     </div>
   </div>
 </section>
@@ -214,47 +214,8 @@
           FourierHandFlow is the ✨spatio-temporally continuous hand representation✨. Given RGB frames observed at each time step, it inherently allows the sampling of hand shapes at inter- and extrapolated
           time values from the learned Fourier query flows. The sampled shapes are shown to model smooth temporal evolution of hand shapes.
         </p>
+        <img src="data/comparison_image.png" alt="MY ALT TEXT"/>
       </div>
-      <div id="results-carousel" class="carousel results-carousel">
-        <div class="item item-video1">
-          <video poster="" id="video1" autoplay controls muted loop height="100%">
-            <!-- Your video file here -->
-            <source src="data/video_interp-1.mp4"
-            type="video/mp4">
-          </video>
-        </div>
-        <div class="item item-video2">
-          <video poster="" id="video2" autoplay controls muted loop height="100%">
-            <!-- Your video file here -->
-            <source src="data/video_interp-2.mp4"
-            type="video/mp4">
-          </video>
-        </div>
-        <div class="item item-video3">
-          <video poster="" id="video3" autoplay controls muted loop height="100%">\
-            <!-- Your video file here -->
-            <source src="data/video_interp-3.mp4"
-            type="video/mp4">
-          </video>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-
-<section class="hero is-small">
-  <div class="hero-body">
-    <div class="container">
-      <h2 class="title is-3">🏃‍♂️ Computational Efficiency</h2>
-      <div class="content has-text-justified">
-        <p>
-          FourierHandFlow parameterizes query flows (i.e., query trajectories over time) using a fixed number of coefficients of Fourier Series.
-          Thus, it can preserve temporal shape continuity while being more ✨computationally efficient✨ than the exiting 4D continuous representations based on ODE solving or per-time occupancy
-decoding.
-        </p>
-        <img src="data/fig_comp.png" alt="MY ALT TEXT"/>
-
     </div>
   </div>
 </section>
@@ -268,7 +229,7 @@ decoding.
         <p>
           Our method consists of three steps: (1) scene estimation, (2) coarse stage, and (3) fine stage estimation. The scene estimation understands the scene by predicting the albedo image and lighting conditions with a given input image. Full detailed textures of both hands are reconstructed from the single image input. The hand texture parametric model is adopted in the coarse stage, then the bi-directional texture reconstruction refines the personalized hand textures by the texture symmetry of left-right-hands. Finally, we render both hands with Phong Illumination.
         </p>
-        <img src="data/fig_image.png" alt="MY ALT TEXT"/>
+        <img src="data/shadow_rendered_image.png" alt="MY ALT TEXT"/>
 
     </div>
   </div>
