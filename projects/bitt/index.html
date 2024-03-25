@@ -179,20 +179,7 @@
         </p>
       </div>
       <h2 class="title is-4">Comparing with Prior-arts</h2>
-      <div id="results-carousel" class="carousel results-carousel">
-        <div class="item item-image1">
-          <img src="data/Comparison_images/1.png" alt="MY ALT TEXT"/>
-        </div>
-        <div class="item item-image2">
-          <img src="data/Comparison_images/2.png" alt="MY ALT TEXT"/>
-        </div>
-        <div class="item item-image3">
-          <img src="data/Comparison_images/3.png" alt="MY ALT TEXT"/>
-        </div>
-        <div class="item item-image4">
-          <img src="data/Comparison_images/4.png" alt="MY ALT TEXT"/>
-        </div>
-      </div>
+      <img src="data/comparison_images.png"/>
       <h2 class="title is-4">Novel Pose and Viewpoint Rendering</h2>
       <div id="results-carousel" class="carousel results-carousel">
         <div class="item item-video1">
@@ -316,7 +303,7 @@ decoding.
 <section class="hero is-small">
   <div class="hero-body">
     <div class="container">
-      <h2 class="title is-3">🛠 Model Architecture</h2>
+      <h2 class="title is-3">Model Architecture</h2>
       <div class="content has-text-justified">
         <p>
           Our method consists of three steps: (1) scene estimation, (2) coarse stage, and (3) fine stage estimation. The scene estimation understands the scene by predicting the albedo image and lighting conditions with a given input image. Full detailed textures of both hands are reconstructed from the single image input. The hand texture parametric model is adopted in the coarse stage, then the bi-directional texture reconstruction refines the personalized hand textures by the texture symmetry of left-right-hands. Finally, we render both hands with Phong Illumination.
@@ -329,20 +316,31 @@ decoding.
 
 
 <!--BibTex citation -->
-  <section class="section" id="BibTeX">
-    <div class="container is-max-desktop content">
-      <h2 class="title">BibTeX</h2>
-      <pre><code>@InProceedings{kim2024bitt,
-    author = {Kim, Minje and Kim, Tae-Kyun},
-    title = {BiTT: Bi-directional Texture Reconstruction of Interacting Two Hands from a Single Image},
-    booktitle = {The IEEE Conference on Computer Vision and Pattern Recognition (CVPR)},
-    year = {2024}
-  }
-</code></pre>
-    </div>
+<section class="section" id="BibTeX">
+  <div class="container is-max-desktop content">
+    <h2 class="title">BibTeX</h2>
+    <pre><code>@InProceedings{kim2024bitt,
+      author = {Kim, Minje and Kim, Tae-Kyun},
+      title = {BiTT: Bi-directional Texture Reconstruction of Interacting Two Hands from a Single Image},
+      booktitle = {The IEEE Conference on Computer Vision and Pattern Recognition (CVPR)},
+      year = {2024}
+    }
+  </code></pre>
+</div>
 </section>
 <!--End BibTex citation -->
 
+<section class="hero is-small">
+  <div class="hero-body">
+    <div class="container">
+      <h2 class="title is-3">Acknowledgements</h2>
+      <div class="content has-text-justified">
+        <p>
+          This work was in part supported by NST grant (CRC 21011, MSIT), KOCCA grant (R2022020028, MCST), IITP grant (RS-2023-00228996, MSIT).
+        </p>
+    </div>
+  </div>
+</section>
 
   <footer class="footer">
   <div class="container">
