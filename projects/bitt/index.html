@@ -160,7 +160,7 @@
         <h2 class="title is-3">Abstract</h2>
         <div class="content has-text-justified">
           <p>
-            Creating personalized hand avatars is important to of- fer a realistic experience to users on AR / VR platforms. While most prior studies focused on reconstructing 3D hand shapes, some recent work has tackled the reconstruction of hand textures on top of shapes. However, these methods are often limited to capturing pixels on the visible side of a hand, requiring diverse views of the hand in a video or multiple images as input. In this paper, we propose a novel method, <b>BiTT(Bi-directional Texture reconstruction of Two hands)</b>, which is the first end-to-end train- able method for relightable, pose-free texture reconstruction of two interacting hands taking only a single RGB image, by three novel components: <b>1) bi-directional (left $ right) texture reconstruction using the texture symmetry of left / right hands, 2) utilizing a texture parametric model for hand texture recovery, and 3) the overall coarse-to-fine stage pipeline for reconstructing personalized texture of two interacting hands</b>. BiTT first estimates the scene light condition and albedo image from an input image, then reconstructs the texture of both hands through the texture para- metric model and bi-directional texture reconstructor. In experiments using InterHand2.6M and RGB2Hands datasets, our method significantly outperforms state-of-the-art hand texture reconstruction methods quantitatively and qualitatively.
+            Creating personalized hand avatars is important to offer a realistic experience to users on AR / VR platforms. While most prior studies focused on reconstructing 3D hand shapes, some recent work has tackled the reconstruction of hand textures on top of shapes. However, these methods are often limited to capturing pixels on the visible side of a hand, requiring diverse views of the hand in a video or multiple images as input. In this paper, we propose a novel method, <b>BiTT(Bi-directional Texture reconstruction of Two hands)</b>, which is the first end-to-end train- able method for relightable, pose-free texture reconstruction of two interacting hands taking only a single RGB image, by three novel components: <b>1) bi-directional (left $ right) texture reconstruction using the texture symmetry of left / right hands, 2) utilizing a texture parametric model for hand texture recovery, and 3) the overall coarse-to-fine stage pipeline for reconstructing personalized texture of two interacting hands</b>. BiTT first estimates the scene light condition and albedo image from an input image, then reconstructs the texture of both hands through the texture para- metric model and bi-directional texture reconstructor. In experiments using InterHand2.6M and RGB2Hands datasets, our method significantly outperforms state-of-the-art hand texture reconstruction methods quantitatively and qualitatively.
           </p>
         </div>
       </div>
@@ -178,10 +178,8 @@
           BiTT achieves the <b>state-of-the-art two-hand reconstruction accuracy</b> on InterHand2.6M and RGB2Hands. From a single image containing two-interacting hands, BiTT can . Please also refer to the paper for quantitative comparisons with more baseline methods.
         </p>
         <h2 class="title is-4">Comparing with Prior-arts</h2>
-        <img src="data/comparison_images.png"/>
+        <img src="data/comparison_image.png"/>
       </div>
-      <h2 class="title is-4">Novel Pose and Viewpoint Rendering</h2>
-      <img src="data/comparison_images.png"/>
     </div>
   </div>
 </section>
@@ -189,34 +187,20 @@
 <section class="hero is-small">
   <div class="hero-body">
     <div class="container">
-      <h2 class="title is-3">Relighting Two Hands</h2>
+      <h2 class="title is-3">Rendering Two Hands with Novel Pose | Viewpoint, and Relighting</h2>
       <div class="content has-text-justified">
         <p>
           FourierHandFlow accurately captures ✨implicit shape correspondences✨ between hands, which naturally allows applications such as texture transfer.
           Given the reference texture defined in our canonical hand field, it achieves high-quality texture transfer on the randomly sampled sequences.
         </p>
-      </div>
-      <div id="results-carousel" class="carousel results-carousel">
-        <div class="item item-video1">
-          <video poster="" id="video1" autoplay controls muted loop height="100%">
-            <!-- Your video file here -->
-            <source src="data/video_textrans-1.mp4"
-            type="video/mp4">
-          </video>
-        </div>
-        <div class="item item-video2">
-          <video poster="" id="video2" autoplay controls muted loop height="100%">
-            <!-- Your video file here -->
-            <source src="data/video_textrans-2.mp4"
-            type="video/mp4">
-          </video>
-        </div>
-        <div class="item item-video3">
-          <video poster="" id="video3" autoplay controls muted loop height="100%">\
-            <!-- Your video file here -->
-            <source src="data/video_textrans-3.mp4"
-            type="video/mp4">
-          </video>
+        <h2 class="title is-4">Novel Pose and Viewpoint Rendering</h2>
+        <div id="results-carousel" class="carousel results-carousel">
+          <div class="item item-image1">
+            <img src="data/pose_view.png"/>
+          </div>
+          <div class="item item-video1">
+            <img src="data/reinterhand.png"/>
+          </div>
         </div>
       </div>
     </div>
