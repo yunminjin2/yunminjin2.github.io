@@ -7,28 +7,28 @@ var NUM_INTERP_FRAMES = 240;
 var currentSlide = 0;
 var totalSlides = 0;
 
-function initCarousel() {
-  var items = document.querySelectorAll('#results-carousel .item');
-  totalSlides = items.length;
-  showSlide(0);
-}
+// function initCarousel() {
+//   var items = document.querySelectorAll('#results-carousel .item');
+//   totalSlides = items.length;
+//   showSlide(0);
+// }
 
-function showSlide(n) {
-  var items = document.querySelectorAll('#results-carousel .item');
+// function showSlide(n) {
+//   var items = document.querySelectorAll('#results-carousel .item');
   
-  // Remove active class from all items
-  items.forEach(item => item.classList.remove('active'));
+//   // Remove active class from all items
+//   items.forEach(item => item.classList.remove('active'));
   
-  // Calculate the correct slide index
-  if (n >= totalSlides) currentSlide = 0;
-  if (n < 0) currentSlide = totalSlides - 1;
-  else currentSlide = n;
+//   // Calculate the correct slide index
+//   if (n >= totalSlides) currentSlide = 0;
+//   if (n < 0) currentSlide = totalSlides - 1;
+//   else currentSlide = n;
   
-  // Add active class to current slide
-  if (items[currentSlide]) {
-    items[currentSlide].classList.add('active');
-  }
-}
+//   // Add active class to current slide
+//   if (items[currentSlide]) {
+//     items[currentSlide].classList.add('active');
+//   }
+// }
 
 function changeSlide(direction) {
   showSlide(currentSlide + direction);
@@ -53,7 +53,7 @@ function setInterpolationImage(i) {
 
 $(document).ready(function() {
     // Initialize custom carousel
-    initCarousel();
+    // initCarousel();
     
     // Check for click events on the navbar burger icon
     $(".navbar-burger").click(function() {
@@ -74,7 +74,43 @@ $(document).ready(function() {
 
 		// Initialize all div with carousel class
     var carousels = bulmaCarousel.attach('.carousel', options);
-
+    function bindModelViewerToCarousel(carouselSelector) {
+      const el = document.querySelector(carouselSelector);
+      if (!el) return;
+  
+      // 이미 attach되어 있으면 인스턴스가 element.bulmaCarousel에 있어요.
+      const instance = el.bulmaCarousel || bulmaCarousel.attach(el, options)[0];
+      const mvs = Array.from(el.querySelectorAll('model-viewer'));
+      if (!mvs.length) return;
+  
+      function activate(index) {
+        mvs.forEach((mv, i) => {
+          // 보이는 슬라이드만 자동회전
+          mv.autoRotate = (i === index);
+  
+          if (i === index) {
+            // 렌더 시작
+            if (mv.dismissPoster) mv.dismissPoster();
+          } else {
+            // 렌더/애니메이션 정지
+            if (mv.showPoster) mv.showPoster();
+          }
+        });
+      }
+  
+      // 초기 적용 (bulmaCarousel가 current 인덱스를 갖고 있을 수 있음)
+      setTimeout(() => {
+        const current = instance.state ? instance.state.current : 0;
+        activate(current || 0);
+      }, 0);
+  
+      // 슬라이드 변경 이벤트에 반응 (버전에 따라 after:show/after:slide 둘 다 걸어둡니다)
+      instance.on('after:show', (state) => activate(state.current));
+      instance.on('after:slide', (state) => activate(state.current));
+    }
+  
+    // 너의 3D 슬라이더 아이디로 바인딩
+    bindModelViewerToCarousel('#results-carousel');
     // Loop on each carousel initialized
     for(var i = 0; i < carousels.length; i++) {
     	// Add listener to  event
@@ -110,3 +146,4 @@ $(document).ready(function() {
     bulmaSlider.attach();
 
 })
+

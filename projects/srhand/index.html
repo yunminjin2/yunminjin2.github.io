@@ -22,7 +22,7 @@
   <!-- Keywords for your paper to be indexed by-->
   <meta name="keywords" content="KEYWORDS SHOULD BE PLACED HERE">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-
+  <base href="{{ site.baseurl }}/">
 
   <title>SRHand</title>
   <link
@@ -187,7 +187,7 @@
         <h2 class="title is-3">Abstract</h2>
         <div class="content has-text-justified">
           <p>
-            Reconstructing detailed hand avatars plays a crucial role in various applications. While prior works have focused on capturing high-fidelity hand geometry, they heavily rely on high-resolution multi-view image inputs and struggle to generalize on low-resolution images. Multi-view image super-resolution methods have been proposed to enforce 3D view consistency. These methods, however, are limited to static objects/scenes with fixed resolutions and are not applicable to articulated deformable hands. In this paper, we propose SRHand (Super-Resolution Hand), the method for reconstructing detailed 3D geometry as well as textured images of hands from low-resolution images. SRHand leverages the advantages of implicit image representation with explicit hand meshes. Specifically, we introduce a geometric-aware implicit image function (GIIF) that learns detailed hand prior by upsampling the coarse input images. By jointly optimizing the implicit image function and explicit 3D hand shapes, our method preserves multi-view and pose consistency among upsampled hand images, and achieves fine-detailed 3D reconstruction (wrinkles, nails). In experiments using the InterHand2.6M and Goliath datasets, our method significantly outperforms state-of-the-art image upsampling methods adapted to hand datasets, and 3D hand reconstruction methods, quantitatively and qualitatively. The code will be publicly available.
+            Reconstructing detailed hand avatars plays a crucial role in various applications. While prior works have focused on capturing high-fidelity hand geometry, they heavily rely on high-resolution multi-view image inputs and struggle to generalize on low-resolution images. Multi-view image super-resolution methods have been proposed to enforce 3D view consistency. These methods, however, are limited to static objects/scenes with fixed resolutions and are not applicable to articulated deformable hands. In this paper, we propose SRHand (Super-Resolution Hand), the method for reconstructing detailed 3D geometry as well as textured images of hands from low-resolution images. SRHand leverages the advantages of implicit image representation with explicit hand meshes. Specifically, we introduce a geometric-aware implicit image function (GIIF) that learns detailed hand prior by upsampling the coarse input images. By jointly optimizing the implicit image function and explicit 3D hand shapes, our method preserves multi-view and pose consistency among upsampled hand images, and achieves fine-detailed 3D reconstruction (wrinkles, nails). In experiments using the InterHand2.6M and Goliath datasets, our method significantly outperforms state-of-the-art image upsampling methods adapted to hand datasets, and 3D hand reconstruction methods, quantitatively and qualitatively. 
           </p>
         </div>
       </div>
@@ -244,63 +244,60 @@
     <div class="container">
       <div class="columns is-centered has-text-centered">
         <div class="column is-four-fifths">
-          <h2 class="title is-2">Interactive 3D Hand Model</h2>
-          <p class="subtitle is-5">Click and drag to rotate, scroll to zoom</p>
-          
-          <!-- 3D Model Viewer -->
-          <div style="width: 100%; height: 500px; margin: 20px 0;">
-            <model-viewer 
-              src="data/0.obj" 
-              alt="3D Hand Model"
-              auto-rotate 
-              camera-controls 
-              shadow-intensity="1"
-              environment-image="https://modelviewer.dev/shared-assets/environments/aircraft_workshop_01_1k.hdr"
-              style="width: 100%; height: 100%; border-radius: 10px; box-shadow: 0 4px 8px rgba(0,0,0,0.1);">
-              
-              <!-- Loading placeholder -->
-              <div class="loading" slot="poster">
-                <div style="display: flex; align-items: center; justify-content: center; height: 100%; background: #f0f0f0; border-radius: 10px;">
-                  <div style="text-align: center;">
-                    <div style="font-size: 24px; margin-bottom: 10px;">🔄</div>
-                    <div>Loading 3D Model...</div>
-                  </div>
-                </div>
-              </div>
-              
-              <!-- Error message -->
-              <div class="error" slot="error">
-                <div style="display: flex; align-items: center; justify-content: center; height: 100%; background: #ffe6e6; border-radius: 10px; color: #d32f2f;">
-                  <div style="text-align: center;">
-                    <div style="font-size: 24px; margin-bottom: 10px;">⚠️</div>
-                    <div>3D Model not found. Please check the file path.</div>
-                  </div>
-                </div>
-              </div>
-            </model-viewer>
+          <h2 class="title is-2">3D Hand Reconstruction from SR Images</h2>
+
+          <div id="results-carousel" class="carousel results-carousel" style="margin-top:-10px;">
+            <!-- Slide 1 -->
+            <div class="item">
+              <model-viewer
+                src="./data/0.glb"
+                alt="Hand Case 1"
+                camera-controls
+                auto-rotate
+                shadow-intensity="1"
+                loading="lazy"
+                reveal="manual"
+                interaction-prompt="none"
+                style="width:100%; height:500px; border-radius:10px; box-shadow:0 4px 8px rgba(0,0,0,.1);">
+              </model-viewer>
+            </div>
+
+            <!-- Slide 2 -->
+            <div class="item">
+              <model-viewer
+                src="data/1.glb"
+                alt="Hand Case 2"
+                camera-controls
+                auto-rotate
+                shadow-intensity="1"
+                loading="lazy"
+                reveal="manual"
+                interaction-prompt="none"
+                style="width:100%; height:500px; border-radius:10px; box-shadow:0 4px 8px rgba(0,0,0,.1);">
+              </model-viewer>
+            </div>
+
+            <!-- Slide 3 -->
+            <div class="item">
+              <model-viewer
+                src="data/2.glb"
+                alt="Hand Case 3"
+                camera-controls
+                auto-rotate
+                shadow-intensity="1"
+                loading="lazy"
+                reveal="manual"
+                interaction-prompt="none"
+                style="width:100%; height:500px; border-radius:10px; box-shadow:0 4px 8px rgba(0,0,0,.1);">
+              </model-viewer>
+            </div>
           </div>
-          
-          <div class="content has-text-justified" style="margin-top: 20px;">
-            <p>
-              <strong>Instructions:</strong> Use your mouse to interact with the 3D hand model above. 
-              Click and drag to rotate the view, scroll to zoom in/out, and right-click and drag to pan around the model.
-            </p>
-          </div>
+
+          <p class="subtitle is-6" style="margin-top:8px;">
+            좌우로 넘겨 다른 케이스를 보고, 각 슬라이드에서 마우스로 드래그·휠로 확대/축소하세요.
+          </p>
         </div>
       </div>
-    </div>
-  </div>
-</section>
-
-<section class="hero is-small">
-  <div class="hero-body">
-    <div class="container">
-      <div class="columns is-centered has-text-centered">
-        <div class="column is-four-fifths">
-          <div style="text-align: center">  
-            <img src="data/quan.png" alt="MY ALT TEXT" width="1440"/>
-          </div>
-        </div>
     </div>
   </div>
 </section>
