@@ -3,6 +3,37 @@ window.HELP_IMPROVE_VIDEOJS = false;
 var INTERP_BASE = "./static/interpolation/stacked";
 var NUM_INTERP_FRAMES = 240;
 
+// Carousel functionality
+var currentSlide = 0;
+var totalSlides = 0;
+
+function initCarousel() {
+  var items = document.querySelectorAll('#results-carousel .item');
+  totalSlides = items.length;
+  showSlide(0);
+}
+
+function showSlide(n) {
+  var items = document.querySelectorAll('#results-carousel .item');
+  
+  // Remove active class from all items
+  items.forEach(item => item.classList.remove('active'));
+  
+  // Calculate the correct slide index
+  if (n >= totalSlides) currentSlide = 0;
+  if (n < 0) currentSlide = totalSlides - 1;
+  else currentSlide = n;
+  
+  // Add active class to current slide
+  if (items[currentSlide]) {
+    items[currentSlide].classList.add('active');
+  }
+}
+
+function changeSlide(direction) {
+  showSlide(currentSlide + direction);
+}
+
 var interp_images = [];
 function preloadInterpolationImages() {
   for (var i = 0; i < NUM_INTERP_FRAMES; i++) {
@@ -21,6 +52,9 @@ function setInterpolationImage(i) {
 
 
 $(document).ready(function() {
+    // Initialize custom carousel
+    initCarousel();
+    
     // Check for click events on the navbar burger icon
     $(".navbar-burger").click(function() {
       // Toggle the "is-active" class on both the "navbar-burger" and the "navbar-menu"
