@@ -25,8 +25,14 @@
 
 
   <title>SRHand</title>
-  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
+  <link
+  rel="icon"
+    href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290✋22>🚶‍♂️</text></svg>"
+  />  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
   rel="stylesheet">
+  
+  <!-- Model Viewer for 3D interaction -->
+  <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
 
   <link rel="stylesheet" href="static/css/bulma.min.css">
   <link rel="stylesheet" href="static/css/bulma-carousel.min.css">
@@ -196,7 +202,7 @@
       <div class="columns is-centered has-text-centered">
       <div class="column is-four-fifths">
         <br>
-        <h2 class="title is-3">3D Hand Reconstruction from SR Images. </h2>
+        <h2 class="title is-2">3D Hand Reconstruction from SR Images. </h2>
       <div class="content has-text-justified">
         <p>
           Given low-resolution hand images, our method firstly reconstructs high-resolution hand images using GIIF. Then, using these images, we reconstruct detailed 3D shapes while jointly optimizing the GIIF through adaptive fine-tuning from 3D shapes. 
@@ -215,10 +221,71 @@
         <div class="item item-image1">
           <img id="image2" src="data/qual/Slide4.png" alt="Slide4" height="100%">
         </div>
-        
+        <div class="item item-image1">
+          <img id="image2" src="data/qual/Slide5.png" alt="Slide5" height="100%">
+        </div>
+        <div class="item item-image1">
+          <img id="image2" src="data/qual/Slide6.png" alt="Slide6" height="100%">
+        </div>
+        <div class="item item-image1">
+          <img id="image2" src="data/qual/Slide7.png" alt="Slide7" height="100%">
+        </div>
+      </div>
+      </div>
+      </div>
+    </div>
+  </div>
+</section>
 
-      </div>
-      </div>
+<!-- 3D Interactive Model Section -->
+<section class="hero is-small">
+  <div class="hero-body">
+    <div class="container">
+      <div class="columns is-centered has-text-centered">
+        <div class="column is-four-fifths">
+          <h2 class="title is-2">Interactive 3D Hand Model</h2>
+          <p class="subtitle is-5">Click and drag to rotate, scroll to zoom</p>
+          
+          <!-- 3D Model Viewer -->
+          <div style="width: 100%; height: 500px; margin: 20px 0;">
+            <model-viewer 
+              src="data/0.obj" 
+              alt="3D Hand Model"
+              auto-rotate 
+              camera-controls 
+              shadow-intensity="1"
+              environment-image="https://modelviewer.dev/shared-assets/environments/aircraft_workshop_01_1k.hdr"
+              style="width: 100%; height: 100%; border-radius: 10px; box-shadow: 0 4px 8px rgba(0,0,0,0.1);">
+              
+              <!-- Loading placeholder -->
+              <div class="loading" slot="poster">
+                <div style="display: flex; align-items: center; justify-content: center; height: 100%; background: #f0f0f0; border-radius: 10px;">
+                  <div style="text-align: center;">
+                    <div style="font-size: 24px; margin-bottom: 10px;">🔄</div>
+                    <div>Loading 3D Model...</div>
+                  </div>
+                </div>
+              </div>
+              
+              <!-- Error message -->
+              <div class="error" slot="error">
+                <div style="display: flex; align-items: center; justify-content: center; height: 100%; background: #ffe6e6; border-radius: 10px; color: #d32f2f;">
+                  <div style="text-align: center;">
+                    <div style="font-size: 24px; margin-bottom: 10px;">⚠️</div>
+                    <div>3D Model not found. Please check the file path.</div>
+                  </div>
+                </div>
+              </div>
+            </model-viewer>
+          </div>
+          
+          <div class="content has-text-justified" style="margin-top: 20px;">
+            <p>
+              <strong>Instructions:</strong> Use your mouse to interact with the 3D hand model above. 
+              Click and drag to rotate the view, scroll to zoom in/out, and right-click and drag to pan around the model.
+            </p>
+          </div>
+        </div>
       </div>
     </div>
   </div>
@@ -227,14 +294,50 @@
 <section class="hero is-small">
   <div class="hero-body">
     <div class="container">
-      <h2 class="title is-3"> Hand Image Super-Resolution </h2> 
-      
-      <div class="content has-text-justified">
-        <p>
-          Our proposed <b>GIIF</b> is a geometric-aware implicit image function that learns detailed hand prior by upsampling the coarse input images. Given any resolution of input images, our GIIF can reconstruct high-resolution images with fine details.
-        </p>
-        <div style="text-align: center">  
-          <img src="data/comparison_image.png" alt="MY ALT TEXT" width="1440"/>
+      <div class="columns is-centered has-text-centered">
+        <div class="column is-four-fifths">
+          <div style="text-align: center">  
+            <img src="data/quan.png" alt="MY ALT TEXT" width="1440"/>
+          </div>
+        </div>
+    </div>
+  </div>
+</section>
+
+
+<section class="hero is-small">
+  <div class="hero-body">
+    <div class="container">
+      <div class="columns is-centered has-text-centered">
+        <div class="column is-four-fifths">
+        <h2 class="title is-3">Comparison with Prior Works </h2> 
+        <div class="content has-text-justified">
+          <p>
+            Quantitative comparisons between compared methods using InterHand2.6M and Goliath dataset. PSNR / LPIPS (SR) shows the PSNR and LPIPS performance of the super-resolution modules. Mark "Incon." stands for inconsistency and "ftd." stands for the fine-tuned model. The top
+            three results are highlighted in red, orange, and yellow, respectively.
+          </p>
+          <div style="text-align: center">  
+            <img src="data/quan.png" alt="MY ALT TEXT" width="1440"/>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="hero is-small">
+  <div class="hero-body">
+    <div class="container">
+      <div class="columns is-centered has-text-centered">
+        <div class="column is-four-fifths">
+        <h2 class="title is-2"> Hand Image Super-Resolution </h2> 
+        <div class="content has-text-justified">
+          <p>
+            Our proposed <b>GIIF</b> is a geometric-aware implicit image function that learns detailed hand prior by upsampling the coarse input images. Given any resolution of input images, our GIIF can reconstruct high-resolution images with fine details.
+          </p>
+          <div style="text-align: center">  
+            <img src="data/liif_qual.png" alt="MY ALT TEXT" width="1440"/>
+          </div>
         </div>
       </div>
     </div>
