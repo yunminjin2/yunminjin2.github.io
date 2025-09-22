@@ -27,7 +27,7 @@
   <title>SRHand</title>
   <link
   rel="icon"
-    href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290✋22>🚶‍♂️</text></svg>"
+    href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%229022>🚶✋</text></svg>"
   />  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
   rel="stylesheet">
   
@@ -245,57 +245,69 @@
       <div class="columns is-centered has-text-centered">
         <div class="column is-four-fifths">
           <h2 class="title is-2">3D Hand Reconstruction from SR Images</h2>
-
+          <div class="content has-text-justified">
+            <p>
+              Below 3D hand models are reconstructed from low-resolution 16 x 16 hand images. Its images are super-resolved to 256 x 256 resolution by our GIIF.
+              Click and drag to rotate the view, scroll to zoom in/out, and right-click and drag to pan around the model. 3D shapes. 
+            </p>
+          </div>
           <div id="results-carousel" class="carousel results-carousel" style="margin-top:-10px;">
             <!-- Slide 1 -->
+            
             <div class="item">
-              <model-viewer
-                src="./data/0.glb"
-                alt="Hand Case 1"
-                camera-controls
-                auto-rotate
-                shadow-intensity="1"
-                loading="lazy"
-                reveal="manual"
-                interaction-prompt="none"
-                style="width:100%; height:500px; border-radius:10px; box-shadow:0 4px 8px rgba(0,0,0,.1);">
-              </model-viewer>
-            </div>
-
-            <!-- Slide 2 -->
-            <div class="item">
-              <model-viewer
-                src="data/1.glb"
-                alt="Hand Case 2"
-                camera-controls
-                auto-rotate
-                shadow-intensity="1"
-                loading="lazy"
-                reveal="manual"
-                interaction-prompt="none"
-                style="width:100%; height:500px; border-radius:10px; box-shadow:0 4px 8px rgba(0,0,0,.1);">
-              </model-viewer>
-            </div>
-
-            <!-- Slide 3 -->
-            <div class="item">
-              <model-viewer
-                src="data/2.glb"
-                alt="Hand Case 3"
-                camera-controls
-                auto-rotate
-                shadow-intensity="1"
-                loading="lazy"
-                reveal="manual"
-                interaction-prompt="none"
-                style="width:100%; height:500px; border-radius:10px; box-shadow:0 4px 8px rgba(0,0,0,.1);">
+              <div style="width: 100%; height: 500px; margin: 20px 0;"> 
+                <model-viewer 
+                src="./data/1_1.glb" 
+                alt="3D Hand Model" 
+                auto-rotate 
+                camera-controls 
+                shadow-intensity="1" 
+                style="width: 100%; height: 100%; border-radius: 10px; box-shadow: 0 4px 8px rgba(0,0,0,0.1);">
               </model-viewer>
             </div>
           </div>
+          
+          <div class="item">
+            <div style="width: 100%; height: 500px; margin: 20px 0;"> 
+              <model-viewer 
+              src="./data/2_1.glb" 
+              alt="3D Hand Model" 
+              auto-rotate 
+              camera-controls 
+              shadow-intensity="1" 
+              style="width: 100%; height: 100%; border-radius: 10px; box-shadow: 0 4px 8px rgba(0,0,0,0.1);">
+            </model-viewer>
+          </div>
+        </div>
+        <div class="item">
+          <div style="width: 100%; height: 500px; margin: 20px 0;"> 
+            <model-viewer 
+              src="./data/0_1.glb" 
+              alt="3D Hand Model" 
+              auto-rotate 
+              camera-controls 
+              shadow-intensity="1" 
+              style="width: 100%; height: 100%; border-radius: 10px; box-shadow: 0 4px 8px rgba(0,0,0,0.1);">
+            </model-viewer>
+          </div>
+        </div>
+        
+        <div class="item">
+          <div style="width: 100%; height: 500px; margin: 20px 0;"> 
+            <model-viewer 
+            src="./data/3_1.glb" 
+            alt="3D Hand Model" 
+                  auto-rotate 
+                  camera-controls 
+                  shadow-intensity="1" 
+                  style="width: 100%; height: 100%; border-radius: 10px; box-shadow: 0 4px 8px rgba(0,0,0,0.1);">
+                </model-viewer>
+              </div>
+            </div>
+            </div>
+          </div>
 
-          <p class="subtitle is-6" style="margin-top:8px;">
-            좌우로 넘겨 다른 케이스를 보고, 각 슬라이드에서 마우스로 드래그·휠로 확대/축소하세요.
-          </p>
+          
         </div>
       </div>
     </div>
