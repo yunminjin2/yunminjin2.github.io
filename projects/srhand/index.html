@@ -154,7 +154,7 @@
       <!-- Your image here -->
       <img src="data/TeaserVideo.gif" alt="MY ALT TEXT"/>
       <h2 class="subtitle has-text-centered">
-        Taking a single image input, our method renders the personalized texture of two hands at novel views, poses, and light conditions, through utilizing symmetric information of left and right hand, and hand texture parameteric model.
+        Given a low-resolution hand images, our method super-resolves the hand images and reconstructs the 3D shapes of the hands.
      </h2>
    </div>
    <br><br>
@@ -180,7 +180,7 @@
         <h2 class="title is-3">Abstract</h2>
         <div class="content has-text-justified">
           <p>
-            Creating personalized hand avatars is important to offer a realistic experience to users on AR / VR platforms. While most prior studies focused on reconstructing 3D hand shapes, some recent work has tackled the reconstruction of hand textures on top of shapes. However, these methods are often limited to capturing pixels on the visible side of a hand, requiring diverse views of the hand in a video or multiple images as input. In this paper, we propose a novel method, <b>BiTT(Bi-directional Texture reconstruction of Two hands)</b>, which is the first end-to-end train- able method for relightable, pose-free texture reconstruction of two interacting hands taking only a single RGB image, by three novel components: <b>1) bi-directional (left ↔︎ right) texture reconstruction using the texture symmetry of left / right hands, 2) utilizing a texture parametric model for hand texture recovery, and 3) the overall coarse-to-fine stage pipeline for reconstructing personalized texture of two interacting hands</b>. BiTT first estimates the scene light condition and albedo image from an input image, then reconstructs the texture of both hands through the texture para- metric model and bi-directional texture reconstructor. In experiments using InterHand2.6M and RGB2Hands datasets, our method significantly outperforms state-of-the-art hand texture reconstruction methods quantitatively and qualitatively.
+            Reconstructing detailed hand avatars plays a crucial role in various applications. While prior works have focused on capturing high-fidelity hand geometry, they heavily rely on high-resolution multi-view image inputs and struggle to generalize on low-resolution images. Multi-view image super-resolution methods have been proposed to enforce 3D view consistency. These methods, however, are limited to static objects/scenes with fixed resolutions and are not applicable to articulated deformable hands. In this paper, we propose SRHand (Super-Resolution Hand), the method for reconstructing detailed 3D geometry as well as textured images of hands from low-resolution images. SRHand leverages the advantages of implicit image representation with explicit hand meshes. Specifically, we introduce a geometric-aware implicit image function (GIIF) that learns detailed hand prior by upsampling the coarse input images. By jointly optimizing the implicit image function and explicit 3D hand shapes, our method preserves multi-view and pose consistency among upsampled hand images, and achieves fine-detailed 3D reconstruction (wrinkles, nails). In experiments using the InterHand2.6M and Goliath datasets, our method significantly outperforms state-of-the-art image upsampling methods adapted to hand datasets, and 3D hand reconstruction methods, quantitatively and qualitatively. The code will be publicly available.
           </p>
         </div>
       </div>
@@ -267,11 +267,11 @@
 <section class="section" id="BibTeX">
   <div class="container is-max-desktop content">
     <h2 class="title">BibTeX</h2>
-    <pre><code>@InProceedings{kim2024bitt,
+    <pre><code>@InProceedings{kim2025srhand,
       author = {Kim, Minje and Kim, Tae-Kyun},
-      title = {BiTT: Bi-directional Texture Reconstruction of Interacting Two Hands from a Single Image},
-      booktitle = {The IEEE Conference on Computer Vision and Pattern Recognition (CVPR)},
-      year = {2024}
+      title = {SRHand: Super-Resolving Hand Images and 3D Shapes via View/Pose-aware Nueral Image Representations and Explicit 3D Meshes},
+      booktitle = {Advances in Neural Information Processing Systems (NIPS)},
+      year = {2025}
     }
   </code></pre>
 </div>
