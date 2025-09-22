@@ -111,6 +111,24 @@ $(document).ready(function() {
   
     // 너의 3D 슬라이더 아이디로 바인딩
     bindModelViewerToCarousel('#results-carousel');
+    
+    // Model viewer pointer events control
+    function swallowPointerEvents(el) {
+      const stop = (e) => {
+        // 모바일에서 스크롤/스와이프 방지 (passive:false 필수)
+        if (e.cancelable) e.preventDefault();
+        e.stopPropagation();
+      };
+      // 데스크톱/모바일 모두 커버
+      ['pointerdown','pointermove','pointerup','pointercancel',
+       'touchstart','touchmove','touchend','touchcancel',
+       'mousedown','mousemove','mouseup','wheel','dragstart','contextmenu']
+       .forEach(type => el.addEventListener(type, stop, { passive: false }));
+    }
+
+    // Apply pointer events control to all model-viewer elements
+    document.querySelectorAll('#results-carousel model-viewer')
+      .forEach(swallowPointerEvents);
     // Loop on each carousel initialized
     for(var i = 0; i < carousels.length; i++) {
     	// Add listener to  event
