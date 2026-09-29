@@ -58,20 +58,20 @@
             <div class="is-size-5 publication-authors">
               <!-- Paper authors -->
               <span class="author-block">
-                <a href="https://yunminjin2.github.io/" target="_blank">Minje Kim</a>,&nbsp;</span>
+                <a href="https://yunminjin2.github.io/" target="_blank">Minje Kim</a><sup>1</sup>,&nbsp;</span>
                   <span class="author-block">
-                    Younghyun Noh,&nbsp;
+                    Younghyun Noh<sup>2</sup>,&nbsp;
                   </span>
                   <span class="author-block">
-                    Jaesoon Kim,&nbsp;
+                    Jaesoon Kim<sup>1</sup>,&nbsp;
                   </span>
                   <span class="author-block">
-                    <a href="https://sites.google.com/view/tkkim/home" target="_blank">Tae-Kyun Kim</a>
+                    <a href="https://sites.google.com/view/tkkim/home" target="_blank">Tae-Kyun Kim</a><sup>1</sup>
                   </span>
                   
                 </div>
                   <div class="is-size-5 publication-authors">
-                    <span class="author-block">KAIST,&nbsp; KT<br>
+                    <span class="author-block"><sup>1</sup>KAIST,&nbsp;&nbsp;<sup>2</sup>KT</span>
                     </div>
                     <h2 class="title is-4"><b>NIPS 2026</b></h2>
 
@@ -170,9 +170,9 @@
   <div class="container is-max-desktop">
     <div class="item">
       <!-- Your image here -->
-      <img src="data/TeaserVideo.gif" alt="MY ALT TEXT"/>
+      <img src="data/Teaser.png" alt="MY ALT TEXT"/>
       <h2 class="subtitle has-text-centered">
-        Given a low-resolution hand images, our method super-resolves the hand images and reconstructs the 3D shapes of the hands.
+        Given a video sequence, DySurface obtains temporally consistent, high-quality meshes by bridging between explicit Gaussian primitives and implicit continuous surface functions.
      </h2>
    </div>
    <br><br>
@@ -198,7 +198,7 @@
         <h2 class="title is-3">Abstract</h2>
         <div class="content has-text-justified">
           <p>
-            Reconstructing detailed hand avatars plays a crucial role in various applications. While prior works have focused on capturing high-fidelity hand geometry, they heavily rely on high-resolution multi-view image inputs and struggle to generalize on low-resolution images. Multi-view image super-resolution methods have been proposed to enforce 3D view consistency. These methods, however, are limited to static objects/scenes with fixed resolutions and are not applicable to articulated deformable hands. In this paper, we propose SRHand (Super-Resolution Hand), the method for reconstructing detailed 3D geometry as well as textured images of hands from low-resolution images. SRHand leverages the advantages of implicit image representation with explicit hand meshes. Specifically, we introduce a geometric-aware implicit image function (GIIF) that learns detailed hand prior by upsampling the coarse input images. By jointly optimizing the implicit image function and explicit 3D hand shapes, our method preserves multi-view and pose consistency among upsampled hand images, and achieves fine-detailed 3D reconstruction (wrinkles, nails). In experiments using the InterHand2.6M and Goliath datasets, our method significantly outperforms state-of-the-art image upsampling methods adapted to hand datasets, and 3D hand reconstruction methods, quantitatively and qualitatively. 
+            While novel view synthesis (NVS) for dynamic scenes has seen significant progress, reconstructing temporally consistent geometric surfaces remains a challenge. Neural Radiance Fields (NeRF) and 3D Gaussian Splatting (3DGS) offer powerful dynamic scene rendering capabilities; however, relying solely on photometric optimization often leads to geometric ambiguities. This results in discontinuous surfaces, severe artifacts, and broken surfaces over time. To address these limitations, we present DySurface, a novel framework that bridges the effectiveness of explicit Gaussians with the geometric fidelity of implicit Signed Distance Functions (SDFs) in dynamic scenes. Our approach tackles the structural discrepancy between the forward deformation of 3DGS ($canonical \rightarrow dynamic$) and the backward deformation required for volumetric SDF rendering ($dynamic \rightarrow canonical$). Specifically, we propose the VoxGS-DSDF branch that leverages deformed Gaussians to construct a dynamic sparse voxel grid, providing explicit geometric guidance to the implicit SDF field. This explicit anchoring effectively regularizes the volumetric rendering process, significantly improving surface reconstruction quality, with watertight boundaries and detailed representations. Quantitative and qualitative experiments demonstrate that DySurface significantly outperforms state-of-the-art baselines in geometric accuracy metrics while maintaining competitive rendering performance.
           </p>
         </div>
       </div>
@@ -384,10 +384,10 @@
   <div class="container is-max-desktop content">
     <h2 class="title">BibTeX</h2>
     <pre><code>@InProceedings{kim2025srhand,
-      author = {Kim, Minje and Kim, Tae-Kyun},
-      title = {SRHand: Super-Resolving Hand Images and 3D Shapes via View/Pose-aware Nueral Image Representations and Explicit 3D Meshes},
+      author = {Kim, Minje and Noh, Younghyun and Kim, Jaesoon and Kim, Tae-Kyun},
+      title = {DySurface: Consistent 4D Surface Reconstruction via Bridging Explicit Gaussians and Implicit Functions},
       booktitle = {Advances in Neural Information Processing Systems (NIPS)},
-      year = {2025}
+      year = {2026}
     }
   </code></pre>
 </div>
@@ -400,7 +400,7 @@
       <h2 class="title is-3">Acknowledgements</h2>
       <div class="content has-text-justified">
         <p>
-          This work was in part supported by 
+          This work was in part supported by NST grant (CRC 21015, MSIT), IITP grant (RS-2023-00228996, RS-2024-00459749, RS-2025-25443318, RS-2025-25441313, MSIT) and InnoCORE program (N10260110, MSIT).
         </p>
     </div>
   </div>
