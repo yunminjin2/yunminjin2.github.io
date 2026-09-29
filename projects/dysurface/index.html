@@ -28,8 +28,13 @@
   <!-- Favicon -->
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>✋</text></svg>">
 
-  <!-- Model Viewer for 3D interaction -->
-  <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
+  <!-- three.js for the synchronized 3D mesh comparison -->
+  <script type="importmap">
+    { "imports": {
+        "three": "https://cdn.jsdelivr.net/npm/three@0.169.0/build/three.module.js",
+        "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.169.0/examples/jsm/"
+    } }
+  </script>
 
   <link rel="stylesheet" href="static/css/bulma.min.css">
   <link rel="stylesheet" href="static/css/bulma-carousel.min.css">
@@ -214,33 +219,21 @@
       <div class="columns is-centered has-text-centered">
       <div class="column is-four-fifths">
         <br>
-        <h2 class="title is-2">3D Hand Reconstruction from SR Images. </h2>
+        <h2 class="title is-2">4D Reconstruction from monocular view videos </h2>
       <div class="content has-text-justified">
         <p>
-          Given low-resolution hand images, our method firstly reconstructs high-resolution hand images using GIIF. Then, using these images, we reconstruct detailed 3D shapes while jointly optimizing the GIIF through adaptive fine-tuning from 3D shapes. 
+          Given a monocular view video, our method reconstructs high quality mesh extracted from SDF which is leveraged by gaussian splatting. Compared to the baselines, our method shows high-resolution of the mesh with high temporal consistency flow. 
         </p>
       </div>
       <div id="results-carousel" class="carousel results-carousel" style="margin-top:-30px;">
         <div class="item item-image1">
-          <img id="image1" src="data/qual/Slide1.png" alt="Slide1" height="100%">
+          <img id="image1" src="data/qual/lego_pp.gif" alt="Slide1" height="100%">
         </div>
         <div class="item item-image1">
-          <img id="image2" src="data/qual/Slide2.png" alt="Slide2" height="100%">
+          <img id="image1" src="data/qual/hook_pp.gif" alt="Slide1" height="100%">
         </div>
         <div class="item item-image1">
-          <img id="image2" src="data/qual/Slide3.png" alt="Slide3" height="100%">
-        </div>
-        <div class="item item-image1">
-          <img id="image2" src="data/qual/Slide4.png" alt="Slide4" height="100%">
-        </div>
-        <div class="item item-image1">
-          <img id="image2" src="data/qual/Slide5.png" alt="Slide5" height="100%">
-        </div>
-        <div class="item item-image1">
-          <img id="image2" src="data/qual/Slide6.png" alt="Slide6" height="100%">
-        </div>
-        <div class="item item-image1">
-          <img id="image2" src="data/qual/Slide7.png" alt="Slide7" height="100%">
+          <img id="image1" src="data/qual/mutant_pp.gif" alt="Slide1" height="100%">
         </div>
       </div>
       </div>
@@ -255,68 +248,186 @@
     <div class="container">
       <div class="columns is-centered has-text-centered">
         <div class="column is-four-fifths">
+          <h2 class="title is-3">Interactive Mesh Comparison</h2>
           <div class="content has-text-justified">
             <p>
-              Below 3D hand models are reconstructed from low-resolution 16 x 16 hand images. Its images are super-resolved to 256 x 256 resolution by our GIIF.
-              Click and drag to rotate the view, scroll to zoom in/out, and right-click and drag to pan around the model. 3D shapes. 
+              Reconstructed surface meshes of the Lego scene from DG-Mesh (left) and DySurface (right).
+              Both viewers share one camera: drag to rotate, scroll to zoom, and right-click and drag to pan in either viewer, and the other follows.
+              Turn off the vertex colors to inspect the bare geometry.
             </p>
           </div>
-          <div id="results-carousel" class="carousel results-carousel" style="margin-top:-10px;">
-            <!-- Slide 1 -->
-            
-            <div class="item">
-              <div style="width: 100%; height: 500px; margin: 20px 0;"> 
-                <model-viewer 
-                src="./data/1_1.glb" 
-                alt="3D Hand Model" 
-                auto-rotate 
-                camera-controls 
-                shadow-intensity="1" 
-                style="width: 100%; height: 100%; border-radius: 10px; box-shadow: 0 4px 8px rgba(0,0,0,0.1);">
-              </model-viewer>
+          <div class="buttons is-centered" style="margin-bottom:0;">
+            <!-- scene buttons are generated from MESH_SCENES below -->
+            <span id="scene-buttons" class="buttons has-addons" style="margin:0 12px 0 0;"></span>
+            <button id="toggle-color" class="button is-dark is-rounded is-small">
+              <span class="icon"><i class="fas fa-palette"></i></span><span>Color: On</span>
+            </button>
+          </div>
+          <div class="columns is-variable is-2" style="margin-top:0;">
+            <div class="column">
+              <p class="has-text-weight-bold" style="margin-bottom:8px;">DG-Mesh</p>
+              <div class="mesh-view" data-method="dgmesh"></div>
+            </div>
+            <div class="column">
+              <p class="has-text-weight-bold" style="margin-bottom:8px;">Ours</p>
+              <div class="mesh-view" data-method="ours"></div>
             </div>
           </div>
-          
-          <div class="item">
-            <div style="width: 100%; height: 500px; margin: 20px 0;"> 
-              <model-viewer 
-              src="./data/2_1.glb" 
-              alt="3D Hand Model" 
-              auto-rotate 
-              camera-controls 
-              shadow-intensity="1" 
-              style="width: 100%; height: 100%; border-radius: 10px; box-shadow: 0 4px 8px rgba(0,0,0,0.1);">
-            </model-viewer>
-          </div>
-        </div>
-        <div class="item">
-          <div style="width: 100%; height: 500px; margin: 20px 0;"> 
-            <model-viewer 
-              src="./data/0_1.glb" 
-              alt="3D Hand Model" 
-              auto-rotate 
-              camera-controls 
-              shadow-intensity="1" 
-              style="width: 100%; height: 100%; border-radius: 10px; box-shadow: 0 4px 8px rgba(0,0,0,0.1);">
-            </model-viewer>
-          </div>
-        </div>
-        
-        <div class="item">
-          <div style="width: 100%; height: 500px; margin: 20px 0;"> 
-            <model-viewer 
-            src="./data/3_1.glb" 
-            alt="3D Hand Model" 
-                  auto-rotate 
-                  camera-controls 
-                  shadow-intensity="1" 
-                  style="width: 100%; height: 100%; border-radius: 10px; box-shadow: 0 4px 8px rgba(0,0,0,0.1);">
-                </model-viewer>
-              </div>
-            </div>
-            </div>
-          </div>
+          <style>
+            .mesh-view { position: relative; width: 96%; height: 500px; border-radius: 10px;
+                         box-shadow: 0 4px 8px rgba(0,0,0,0.1); background: #f5f5f5; overflow: hidden; touch-action: none; }
+            .mesh-view canvas { display: block; }
+            .mesh-view .mesh-loading { position: absolute; inset: 0; display: flex; align-items: center;
+                                       justify-content: center; color: #888; pointer-events: none; }
+          </style>
+          <script type="module">
+            import * as THREE from 'three';
+            import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
+            import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js';
+            import { DRACOLoader } from 'three/addons/loaders/DRACOLoader.js';
+            import { RoomEnvironment } from 'three/addons/environments/RoomEnvironment.js';
 
+            // To add a scene to the gallery, put its compressed meshes in ./data and add one line here.
+            const MESH_SCENES = [
+              { name: 'Lego',  dgmesh: './data/lego_dgmesh.glb', ours: './data/lego_ours_mc384.glb' },
+              { name: 'T-Rex', dgmesh: './data/trex_dgmesh.glb', ours: './data/trex_ours.glb' },
+              { name: 'Hook', dgmesh: './data/hook_dgmesh.glb', ours: './data/hook_ours.glb' },
+              { name: 'Mutant', dgmesh: './data/mutant_dgmesh.glb', ours: './data/mutant_ours.glb' },
+            ];
+
+            const containers = Array.from(document.querySelectorAll('.mesh-view'));
+            // One camera shared by both views, so they always show the same viewpoint.
+            const camera = new THREE.PerspectiveCamera(35, 1, 0.01, 100);
+            camera.position.set(2.5, 1.5, 3.5);
+            const target = new THREE.Vector3();
+
+            const draco = new DRACOLoader().setDecoderPath('https://www.gstatic.com/draco/versioned/decoders/1.5.7/');
+            const loader = new GLTFLoader().setDRACOLoader(draco);
+            const cache = new Map();              // src -> Promise<gltf.scene>, so switching back is instant
+            let colorOn = true;
+            let current = 0;
+
+            const views = containers.map((el, i) => {
+              const renderer = new THREE.WebGLRenderer({ antialias: true });
+              renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+              el.appendChild(renderer.domElement);
+              const scene = new THREE.Scene();
+              scene.background = new THREE.Color(0xf5f5f5);
+              scene.environment = new THREE.PMREMGenerator(renderer).fromScene(new RoomEnvironment(), 0.04).texture;
+              scene.environmentIntensity = 0.5;
+              const sun = new THREE.DirectionalLight(0xffffff, 1.5);
+              scene.add(sun, sun.target);
+
+              const controls = new OrbitControls(camera, renderer.domElement);
+              controls.target = target;           // shared target keeps panning in sync
+              controls.enableDamping = true;
+              controls.autoRotate = i === containers.length - 1;  // rotate once, not once per view
+              controls.autoRotateSpeed = 1.5;
+
+              const status = document.createElement('div');
+              status.className = 'mesh-loading';
+              el.appendChild(status);
+
+              return { el, renderer, scene, controls, sun, status, model: null };
+            });
+
+            function loadMesh(src, onProgress) {
+              if (!cache.has(src)) {
+                const promise = new Promise((resolve, reject) => loader.load(src, gltf => {
+                  gltf.scene.traverse(o => {
+                    if (o.isMesh) o.material = new THREE.MeshStandardMaterial({ vertexColors: true, roughness: 0.8, metalness: 0 });
+                  });
+                  resolve(gltf.scene);
+                }, onProgress, reject));
+                promise.catch(() => cache.delete(src));   // allow a retry later
+                cache.set(src, promise);
+              }
+              return cache.get(src);
+            }
+
+            function showScene(index) {
+              current = index;
+              const entry = MESH_SCENES[index];
+              sceneButtons.forEach((b, i) => b.classList.toggle('is-dark', i === index));
+              let framed = false;
+              views.forEach(v => {
+                if (v.model) v.scene.remove(v.model);
+                v.model = null;
+                v.status.style.display = '';
+                v.status.textContent = 'Loading...';
+                loadMesh(entry[v.el.dataset.method], e => {
+                  if (e.total && current === index) v.status.textContent = `Loading... ${Math.round(100 * e.loaded / e.total)}%`;
+                }).then(model => {
+                  if (current !== index) return;   // user already switched to another scene
+                  v.model = model;
+                  v.scene.add(model);
+                  if (!framed) { frame(model); framed = true; }
+                  applyColor();
+                  v.status.style.display = 'none';
+                }, () => {
+                  if (current === index) v.status.textContent = 'Mesh not available yet.';
+                });
+              });
+            }
+
+            const sceneButtons = MESH_SCENES.map((entry, i) => {
+              const b = document.createElement('button');
+              b.className = 'button is-rounded is-small';
+              b.textContent = entry.name;
+              b.addEventListener('click', () => showScene(i));
+              document.getElementById('scene-buttons').appendChild(b);
+              return b;
+            });
+
+            // Stop auto-rotation for good once someone interacts with either view.
+            views.forEach(v => v.controls.addEventListener('start', () => views.forEach(o => o.controls.autoRotate = false)));
+
+            function frame(object) {
+              const box = new THREE.Box3().setFromObject(object);
+              const sphere = box.getBoundingSphere(new THREE.Sphere());
+              target.copy(sphere.center);
+              // fit whichever of the vertical / horizontal field of view is narrower (views are portrait on desktop)
+              const vfov = THREE.MathUtils.degToRad(camera.fov);
+              const hfov = 2 * Math.atan(Math.tan(vfov / 2) * camera.aspect);
+              const dist = sphere.radius / Math.sin(Math.min(vfov, hfov) / 2) * 0.85;
+              camera.position.copy(sphere.center).add(new THREE.Vector3(0.55, 0.35, 0.75).normalize().multiplyScalar(dist));
+            }
+
+            const button = document.getElementById('toggle-color');
+            function applyColor() {
+              views.forEach(v => v.model && v.model.traverse(o => {
+                if (!o.isMesh) return;
+                o.material.vertexColors = colorOn;
+                o.material.color.set(colorOn ? 0xffffff : 0x9a9a9a);
+                o.material.needsUpdate = true;
+              }));
+              button.querySelector('span:last-child').textContent = `Color: ${colorOn ? 'On' : 'Off'}`;
+            }
+            button.addEventListener('click', () => { colorOn = !colorOn; applyColor(); });
+
+            function resize() {
+              const { clientWidth: w, clientHeight: h } = views[0].el;
+              camera.aspect = w / h;
+              camera.updateProjectionMatrix();
+              views.forEach(v => v.renderer.setSize(v.el.clientWidth, v.el.clientHeight));
+            }
+            new ResizeObserver(resize).observe(views[0].el);
+            resize();
+            showScene(0);
+
+            (function animate() {
+              requestAnimationFrame(animate);
+              views.forEach(v => v.controls.update());
+              views.forEach(v => {
+                // headlight: keep the light at the camera so shading stays readable from any angle
+                v.sun.position.copy(camera.position);
+                v.sun.target.position.copy(target);
+                v.renderer.render(v.scene, camera);
+              });
+            })();
+          </script>
+          
+          
           
         </div>
       </div>
@@ -324,7 +435,7 @@
   </div>
 </section>
 
-
+<!-- 
 <section class="hero is-small">
   <div class="hero-body">
     <div class="container">
@@ -344,26 +455,8 @@
     </div>
   </div>
 </section>
-
-<section class="hero is-small">
-  <div class="hero-body">
-    <div class="container">
-      <div class="columns is-centered has-text-centered">
-        <div class="column is-four-fifths">
-        <h2 class="title is-2"> Hand Image Super-Resolution </h2> 
-        <div class="content has-text-justified">
-          <p>
-            Our proposed <b>GIIF</b> is a geometric-aware implicit image function that learns detailed hand prior by upsampling the coarse input images. Given any resolution of input images, our GIIF can reconstruct high-resolution images with fine details.
-          </p>
-          <div style="text-align: center">  
-            <img src="data/liif_qual.png" alt="MY ALT TEXT" width="1440"/>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
 </section>
-
+ -->
 
 
 <section class="hero is-small">
@@ -371,8 +464,8 @@
     <div class="container">
       <h2 class="title is-3">Pipeline Overview</h2>
       <div class="content has-text-justified">
-        <p> (a) Given LR images, we reconstruct high-resolution images using GIIF. Using these images, we reconstruct detailed 3D shapes while jointly optimizing the GIIF through adaptive fine-tuning from 3D shapes. (b) shows the architecture of GIIF. (c) represents the adaptive fine-tuning process. </p>
-        <img src="data/Architecture.png" alt="MY ALT TEXT"/>
+        <p> Our framework consists of three branches, learned in a stage-wise manner. (1) GS branch deforms canonical 3DGS into dynamic space using a transform field. (2) VoxGS-DSDF branch anchors the implicit SDF field to the deformed GS voxels through RayQuery-GS matching, resolving the forward-backward mapping gap while volume rendering. (3) MeshGS branch extracts the canonical surface from the learned SDF and refines the transform field. </p>
+        <img src="data/pipeline.png" alt="MY ALT TEXT"/>
 
     </div>
   </div>
