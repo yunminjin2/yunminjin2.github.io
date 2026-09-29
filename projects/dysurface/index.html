@@ -1,0 +1,434 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <!-- Meta tags for social media banners, these should be filled in appropriatly as they are your "business card" -->
+  <!-- Replace the content tag with appropriate information -->
+  <meta name="description" content="DESCRIPTION META TAG">
+  <meta property="og:title" content="DySurface"/>
+  <meta property="og:description" content="DySurface: Consistent 4D Surface Reconstruction via Bridging Explicit Gaussians and Implicit Functions (NIPS 2026)"/>
+  <meta property="og:url" content="URL OF THE WEBSITE"/>
+  <!-- Path to banner image, should be in the path listed below. Optimal dimenssions are 1200X630-->
+  <meta property="og:image" content="static/image/your_banner_image.png" />
+  <meta property="og:image:width" content="1200"/>
+  <meta property="og:image:height" content="630"/>
+
+
+  <meta name="twitter:title" content="DySurface">
+  <meta name="twitter:description" content="DySurface: Consistent 4D Surface Reconstruction via Bridging Explicit Gaussians and Implicit Functions (NIPS 2026)">
+  <!-- Path to banner image, should be in the path listed below. Optimal dimenssions are 1200X600-->
+  <meta name="twitter:image" content="static/images/your_twitter_banner_image.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <!-- Keywords for your paper to be indexed by-->
+  <meta name="keywords" content="KEYWORDS SHOULD BE PLACED HERE">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  
+
+  <title>DySurface</title>
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>✋</text></svg>">
+
+  <!-- Model Viewer for 3D interaction -->
+  <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
+
+  <link rel="stylesheet" href="static/css/bulma.min.css">
+  <link rel="stylesheet" href="static/css/bulma-carousel.min.css">
+  <link rel="stylesheet" href="static/css/bulma-slider.min.css">
+  <link rel="stylesheet" href="static/css/fontawesome.all.min.css">
+  <link rel="stylesheet"
+  href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link rel="stylesheet" href="static/css/index.css">
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://documentcloud.adobe.com/view-sdk/main.js"></script>
+  <script defer src="static/js/fontawesome.all.min.js"></script>
+  <script src="static/js/bulma-carousel.min.js"></script>
+  <script src="static/js/bulma-slider.min.js"></script>
+  <script src="static/js/index.js"></script>
+</head>
+<body>
+
+
+  <section class="hero">
+    <div class="hero-body">
+      <div class="container is-max-desktop">
+        <div class="columns is-centered">
+          <div class="column has-text-centered">
+            <h1 class="title is-1 publication-title">✋<b>DySurface</b>: Consistent 4D Surface Reconstruction via Bridging Explicit Gaussians and Implicit Functions</h1>
+            <div class="is-size-5 publication-authors">
+              <!-- Paper authors -->
+              <span class="author-block">
+                <a href="https://yunminjin2.github.io/" target="_blank">Minje Kim</a>,&nbsp;</span>
+                  <span class="author-block">
+                    Younghyun Noh,&nbsp;
+                  </span>
+                  <span class="author-block">
+                    Jaesoon Kim,&nbsp;
+                  </span>
+                  <span class="author-block">
+                    <a href="https://sites.google.com/view/tkkim/home" target="_blank">Tae-Kyun Kim</a>
+                  </span>
+                  
+                </div>
+                  <div class="is-size-5 publication-authors">
+                    <span class="author-block">KAIST,&nbsp; KT<br>
+                    </div>
+                    <h2 class="title is-4"><b>NIPS 2026</b></h2>
+
+                  <div class="column has-text-centered">
+                    <div class="publication-links">
+                         <!-- Arxiv PDF link -->
+                      <span class="link-block">
+                        <a href="https://arxiv.org/abs/2605.10360" target="_blank"
+                        class="external-link button is-normal is-rounded is-dark">
+                        <span class="icon">
+                          <i class="fas fa-file-pdf"></i>
+                        </span>
+                        <span>Paper</span>
+                      </a>
+                    </span>
+                    
+                    <!-- Supplementary PDF link -->
+                    <!--
+                    <span class="link-block">
+                      <a href="static/pdfs/supplementary_material.pdf" target="_blank"
+                      class="external-link button is-normal is-rounded is-dark">
+                      <span class="icon">
+                        <i class="fas fa-file-pdf"></i>
+                      </span>
+                      <span>Supplementary</span>
+                    </a>
+                  </span>
+                -->
+
+
+
+                  <!-- Github link -->
+
+                  <span class="link-block">
+                    <a href="https://github.com/yunminjin2/DySurface" target="_blank"
+                    class="external-link button is-normal is-rounded is-dark">
+                    <span class="icon">
+                      <i class="fab fa-github"></i>
+                    </span>
+                    <span>Code</span>
+                  </a>
+                </span>
+
+                <!-- ArXiv abstract Link -->
+                <!--
+                <span class="link-block">
+                  <a href="https://arxiv.org/abs/<ARXIV PAPER ID>" target="_blank"
+                  class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                    <i class="ai ai-arxiv"></i>
+                  </span>
+                  <span>arXiv</span>
+                </a>
+              </span>
+            -->
+            
+              <!-- <span class="link-block">
+                <a href="https://youtu.be/flodHBxu2bk" target="_blank"
+                class="external-link button is-normal is-rounded is-dark">
+                <span class="icon">
+                  <i class="fas fa-video"></i>
+                  </span>
+                  <span>Video</span>
+                </a>
+              </span> --> 
+              <span class="link-block">
+                <a href="./data/[NIPS 2025] SRHand__Super_Resolving_Hand_Images_and_3D_Shapes_via_View_Pose_aware_Neural_Image_Representations_and_Explicit_3D_Meshes_supp.pdf" target="_blank"
+                class="external-link button is-normal is-rounded is-dark">
+                <span class="icon">
+                  <i class="fas fa-file-pdf"></i>
+                  </span>
+                  <span>Supplementary material</span>
+                </a>
+              </span>
+              <!-- <span class="link-block">
+                <a href="./data/nips_2025_SRHand_poster.png" target="_blank"
+                class="external-link button is-normal is-rounded is-dark">
+                <span class="icon">
+                  <i class="fas fa-file-pdf"></i>
+                  </span>
+                  <span>Poster</span>
+                </a>
+              </span> -->
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- Teaser video-->
+<section class="hero teaser">
+  <div class="container is-max-desktop">
+    <div class="item">
+      <!-- Your image here -->
+      <img src="data/TeaserVideo.gif" alt="MY ALT TEXT"/>
+      <h2 class="subtitle has-text-centered">
+        Given a low-resolution hand images, our method super-resolves the hand images and reconstructs the 3D shapes of the hands.
+     </h2>
+   </div>
+   <br><br>
+
+    <!-- <div class="hero-body">
+      <video poster="" id="tree" autoplay controls muted loop height="100%">
+        <source src="static/videos/banner_video.mp4"
+        type="video/mp4">
+      </video>
+      <h2 class="subtitle has-text-centered">
+        Aliquam vitae elit ullamcorper tellus egestas pellentesque. Ut lacus tellus, maximus vel lectus at, placerat pretium mi. Maecenas dignissim tincidunt vestibulum. Sed consequat hendrerit nisl ut maximus.
+      </h2>
+    </div> -->
+  </div>
+</section>
+<!-- End teaser video -->
+
+<!-- Paper abstract -->
+<section class="section hero is-light">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Abstract</h2>
+        <div class="content has-text-justified">
+          <p>
+            Reconstructing detailed hand avatars plays a crucial role in various applications. While prior works have focused on capturing high-fidelity hand geometry, they heavily rely on high-resolution multi-view image inputs and struggle to generalize on low-resolution images. Multi-view image super-resolution methods have been proposed to enforce 3D view consistency. These methods, however, are limited to static objects/scenes with fixed resolutions and are not applicable to articulated deformable hands. In this paper, we propose SRHand (Super-Resolution Hand), the method for reconstructing detailed 3D geometry as well as textured images of hands from low-resolution images. SRHand leverages the advantages of implicit image representation with explicit hand meshes. Specifically, we introduce a geometric-aware implicit image function (GIIF) that learns detailed hand prior by upsampling the coarse input images. By jointly optimizing the implicit image function and explicit 3D hand shapes, our method preserves multi-view and pose consistency among upsampled hand images, and achieves fine-detailed 3D reconstruction (wrinkles, nails). In experiments using the InterHand2.6M and Goliath datasets, our method significantly outperforms state-of-the-art image upsampling methods adapted to hand datasets, and 3D hand reconstruction methods, quantitatively and qualitatively. 
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- End paper abstract -->
+
+
+<section class="hero is-small">
+  <div class="hero-body">
+    <div class="container">
+      <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <br>
+        <h2 class="title is-2">3D Hand Reconstruction from SR Images. </h2>
+      <div class="content has-text-justified">
+        <p>
+          Given low-resolution hand images, our method firstly reconstructs high-resolution hand images using GIIF. Then, using these images, we reconstruct detailed 3D shapes while jointly optimizing the GIIF through adaptive fine-tuning from 3D shapes. 
+        </p>
+      </div>
+      <div id="results-carousel" class="carousel results-carousel" style="margin-top:-30px;">
+        <div class="item item-image1">
+          <img id="image1" src="data/qual/Slide1.png" alt="Slide1" height="100%">
+        </div>
+        <div class="item item-image1">
+          <img id="image2" src="data/qual/Slide2.png" alt="Slide2" height="100%">
+        </div>
+        <div class="item item-image1">
+          <img id="image2" src="data/qual/Slide3.png" alt="Slide3" height="100%">
+        </div>
+        <div class="item item-image1">
+          <img id="image2" src="data/qual/Slide4.png" alt="Slide4" height="100%">
+        </div>
+        <div class="item item-image1">
+          <img id="image2" src="data/qual/Slide5.png" alt="Slide5" height="100%">
+        </div>
+        <div class="item item-image1">
+          <img id="image2" src="data/qual/Slide6.png" alt="Slide6" height="100%">
+        </div>
+        <div class="item item-image1">
+          <img id="image2" src="data/qual/Slide7.png" alt="Slide7" height="100%">
+        </div>
+      </div>
+      </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 3D Interactive Model Section -->
+<section class="hero is-small">
+  <div class="hero-body">
+    <div class="container">
+      <div class="columns is-centered has-text-centered">
+        <div class="column is-four-fifths">
+          <div class="content has-text-justified">
+            <p>
+              Below 3D hand models are reconstructed from low-resolution 16 x 16 hand images. Its images are super-resolved to 256 x 256 resolution by our GIIF.
+              Click and drag to rotate the view, scroll to zoom in/out, and right-click and drag to pan around the model. 3D shapes. 
+            </p>
+          </div>
+          <div id="results-carousel" class="carousel results-carousel" style="margin-top:-10px;">
+            <!-- Slide 1 -->
+            
+            <div class="item">
+              <div style="width: 100%; height: 500px; margin: 20px 0;"> 
+                <model-viewer 
+                src="./data/1_1.glb" 
+                alt="3D Hand Model" 
+                auto-rotate 
+                camera-controls 
+                shadow-intensity="1" 
+                style="width: 100%; height: 100%; border-radius: 10px; box-shadow: 0 4px 8px rgba(0,0,0,0.1);">
+              </model-viewer>
+            </div>
+          </div>
+          
+          <div class="item">
+            <div style="width: 100%; height: 500px; margin: 20px 0;"> 
+              <model-viewer 
+              src="./data/2_1.glb" 
+              alt="3D Hand Model" 
+              auto-rotate 
+              camera-controls 
+              shadow-intensity="1" 
+              style="width: 100%; height: 100%; border-radius: 10px; box-shadow: 0 4px 8px rgba(0,0,0,0.1);">
+            </model-viewer>
+          </div>
+        </div>
+        <div class="item">
+          <div style="width: 100%; height: 500px; margin: 20px 0;"> 
+            <model-viewer 
+              src="./data/0_1.glb" 
+              alt="3D Hand Model" 
+              auto-rotate 
+              camera-controls 
+              shadow-intensity="1" 
+              style="width: 100%; height: 100%; border-radius: 10px; box-shadow: 0 4px 8px rgba(0,0,0,0.1);">
+            </model-viewer>
+          </div>
+        </div>
+        
+        <div class="item">
+          <div style="width: 100%; height: 500px; margin: 20px 0;"> 
+            <model-viewer 
+            src="./data/3_1.glb" 
+            alt="3D Hand Model" 
+                  auto-rotate 
+                  camera-controls 
+                  shadow-intensity="1" 
+                  style="width: 100%; height: 100%; border-radius: 10px; box-shadow: 0 4px 8px rgba(0,0,0,0.1);">
+                </model-viewer>
+              </div>
+            </div>
+            </div>
+          </div>
+
+          
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<section class="hero is-small">
+  <div class="hero-body">
+    <div class="container">
+      <div class="columns is-centered has-text-centered">
+        <div class="column is-four-fifths">
+        <h2 class="title is-3">Comparison with Prior Works </h2> 
+        <div class="content has-text-justified">
+          <p>
+            Quantitative comparisons between compared methods using InterHand2.6M and Goliath dataset. PSNR / LPIPS (SR) shows the PSNR and LPIPS performance of the super-resolution modules. Mark "Incon." stands for inconsistency and "ftd." stands for the fine-tuned model. The top
+            three results are highlighted in red, orange, and yellow, respectively.
+          </p>
+          <div style="text-align: center">  
+            <img src="data/quan.png" alt="MY ALT TEXT" width="1440"/>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="hero is-small">
+  <div class="hero-body">
+    <div class="container">
+      <div class="columns is-centered has-text-centered">
+        <div class="column is-four-fifths">
+        <h2 class="title is-2"> Hand Image Super-Resolution </h2> 
+        <div class="content has-text-justified">
+          <p>
+            Our proposed <b>GIIF</b> is a geometric-aware implicit image function that learns detailed hand prior by upsampling the coarse input images. Given any resolution of input images, our GIIF can reconstruct high-resolution images with fine details.
+          </p>
+          <div style="text-align: center">  
+            <img src="data/liif_qual.png" alt="MY ALT TEXT" width="1440"/>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
+<section class="hero is-small">
+  <div class="hero-body">
+    <div class="container">
+      <h2 class="title is-3">Pipeline Overview</h2>
+      <div class="content has-text-justified">
+        <p> (a) Given LR images, we reconstruct high-resolution images using GIIF. Using these images, we reconstruct detailed 3D shapes while jointly optimizing the GIIF through adaptive fine-tuning from 3D shapes. (b) shows the architecture of GIIF. (c) represents the adaptive fine-tuning process. </p>
+        <img src="data/Architecture.png" alt="MY ALT TEXT"/>
+
+    </div>
+  </div>
+</section>
+
+
+<!--BibTex citation -->
+<section class="section" id="BibTeX">
+  <div class="container is-max-desktop content">
+    <h2 class="title">BibTeX</h2>
+    <pre><code>@InProceedings{kim2025srhand,
+      author = {Kim, Minje and Kim, Tae-Kyun},
+      title = {SRHand: Super-Resolving Hand Images and 3D Shapes via View/Pose-aware Nueral Image Representations and Explicit 3D Meshes},
+      booktitle = {Advances in Neural Information Processing Systems (NIPS)},
+      year = {2025}
+    }
+  </code></pre>
+</div>
+</section>
+<!--End BibTex citation -->
+
+<section class="hero is-small">
+  <div class="hero-body">
+    <div class="container">
+      <h2 class="title is-3">Acknowledgements</h2>
+      <div class="content has-text-justified">
+        <p>
+          This work was in part supported by 
+        </p>
+    </div>
+  </div>
+</section>
+
+  <footer class="footer">
+  <div class="container">
+    <div class="columns is-centered">
+      <div class="column is-8">
+        <div class="content">
+
+          <p>
+            This page was built using the <a href="https://github.com/eliahuhorwitz/Academic-project-page-template" target="_blank">Academic Project Page Template</a> which was adopted from the <a href="https://nerfies.github.io" target="_blank">Nerfies</a> project page.
+            This website is licensed under a <a rel="license"  href="http://creativecommons.org/licenses/by-sa/4.0/" target="_blank">Creative
+            Commons Attribution-ShareAlike 4.0 International License</a>.
+          </p>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<!-- Statcounter tracking code -->
+
+<!-- You can add a tracker to track page visits by creating an account at statcounter.com -->
+
+    <!-- End of Statcounter Code -->
+
+  </body>
+  </html>
